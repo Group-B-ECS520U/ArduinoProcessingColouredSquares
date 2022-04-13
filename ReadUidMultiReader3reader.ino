@@ -29,8 +29,9 @@
  *
  */
 
-#include <SPI.h>
+#include <SPI.h> //include libraries
 #include <MFRC522.h>
+
 
 #define RST_PIN         9          // Configurable, see typical pin layout above
 #define SS_1_PIN        10         // Configurable, take a unused pin, only HIGH/LOW required, must be different to SS 2
@@ -78,7 +79,7 @@ void loop() {
 
     if (mfrc522[reader].PICC_IsNewCardPresent() && mfrc522[reader].PICC_ReadCardSerial()) {
       //Serial.print(F("Reader "));
-      Serial.print("&");
+      Serial.print("&"); //extra symbols added to output so the sections of the read line can be seperated in the processing code
       Serial.print(reader);
       Serial.print("!");
       // Show some details of the PICC (that is: the tag/card)
